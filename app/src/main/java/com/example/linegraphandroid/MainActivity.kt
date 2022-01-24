@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadLineGraph() {
-
         val series = LineGraphSeries(
             arrayOf(
                 DataPoint(0.0, 1.0),
