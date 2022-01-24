@@ -1,15 +1,14 @@
 package com.example.linegraphandroid
 
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.jjoe64.graphview.GraphView
-import com.jjoe64.graphview.GridLabelRenderer
 import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
 
 
 class MainActivity : AppCompatActivity() {
-
     lateinit var graphView: GraphView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,13 +30,15 @@ class MainActivity : AppCompatActivity() {
                 DataPoint(6.0, 21.0),
                 DataPoint(7.0, 27.0),
                 DataPoint(8.0, 18.0),
-                DataPoint(10.0, 35.0),
-
+                DataPoint(10.0, 35.0)
             )
         )
         series.isDrawDataPoints = true
         series.dataPointsRadius = 8F
+        populateLineGraph(series)
+    }
 
+    private fun populateLineGraph(data: LineGraphSeries<DataPoint>) {
         graphView.title = "My First Line Graph"
         graphView.viewport.setMinX(0.0)
         graphView.viewport.setMaxX(10.0)
@@ -45,9 +46,13 @@ class MainActivity : AppCompatActivity() {
         graphView.viewport.setMaxY(40.0)
         graphView.viewport.isYAxisBoundsManual = true
         graphView.viewport.isXAxisBoundsManual = true
-        graphView.gridLabelRenderer.gridStyle = GridLabelRenderer.GridStyle.BOTH
-        graphView.viewport.setDrawBorder(true)
+        val gridLabelRenderer = graphView.gridLabelRenderer
+        gridLabelRenderer.horizontalAxisTitle = "Duration (Year)"
+        gridLabelRenderer.horizontalAxisTitleColor = Color.BLUE
+        gridLabelRenderer.verticalAxisTitleColor = Color.BLUE
+        gridLabelRenderer.verticalAxisTitle = "Performance (%)"
+        graphView.addSeries(data)
 
-        graphView.addSeries(series)
+
     }
 }
