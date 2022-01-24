@@ -7,6 +7,7 @@ import com.jjoe64.graphview.GridLabelRenderer
 import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
 
+
 class MainActivity : AppCompatActivity() {
 
     lateinit var graphView: GraphView
