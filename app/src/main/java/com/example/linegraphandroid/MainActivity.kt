@@ -52,7 +52,6 @@ class MainActivity : AppCompatActivity() {
         gridLabelRenderer.verticalAxisTitleColor = Color.BLUE
         gridLabelRenderer.verticalAxisTitle = "Performance (%)"
         graphView.addSeries(data)
-
-
     }
+
 }
